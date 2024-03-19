@@ -1,12 +1,12 @@
 """
 Utility functions for the application.
 """
-import random
 import string
 from functools import wraps
 from time import time
 
 from pybas_automation.utils.logger import get_logger
+import secrets
 
 logger = get_logger()
 
@@ -34,4 +34,4 @@ def random_string(length: int = 10) -> str:
     :param length: The length of the string.
     """
 
-    return "".join(random.choices(string.ascii_lowercase + string.digits, k=length))
+    return "".join(secrets.SystemRandom().choices(string.ascii_lowercase + string.digits, k=length))
